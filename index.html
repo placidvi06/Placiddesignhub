@@ -1,0 +1,395 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Placid Designs</title>  
+  
+<style>  
+:root {  
+  --bg:#0f172a;  
+  --text:#fff;  
+  --primary:#38bdf8;  
+}  
+  
+.light {  
+  --bg:#fff;  
+  --text:#000;  
+}  
+  
+html {  
+  scroll-behavior: smooth;  
+}  
+  
+body {  
+  background: var(--bg);  
+  color: var(--text);  
+  font-family: Arial;  
+  transition: 0.3s;  
+}  
+
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+body.loaded {
+  opacity: 1;
+}
+  
+/* NAV */  
+nav {  
+  display:flex;  
+  justify-content:space-between;  
+  padding:15px 30px;  
+}  
+  
+nav a {  
+  margin-left:15px;  
+  text-decoration:none;  
+  color:var(--text);  
+}  
+
+/* MENU */
+.menu {
+  position: relative;
+}
+
+.menu button {
+  background: var(--primary);
+  border: none;
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: var(--bg);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  margin: 10px 0;
+}
+
+.slider {
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+/* SLIDER CONTAINER */
+.slider {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* TRACK */
+.slides {
+  display: flex;
+  gap: 20px;
+  transition: transform 1s ease;
+}
+
+/* EACH SLIDE */
+.slide {
+  flex: 0 0 70%;   /* center takes 70% */
+  text-align: center;
+  opacity: 0.6;
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+
+/* ACTIVE CENTER */
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* IMAGE */
+.slide img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.slide p {
+  margin-top: 10px;
+  color: var(--primary);
+}
+  
+/* HERO */  
+.hero {  
+  text-align:center;  
+  padding:80px 20px;  
+  animation: fade 1.5s;  
+}  
+  
+.hero span {color:var(--primary);}  
+  
+/* GRID */  
+.grid {  
+  display:grid;  
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));  
+  gap:15px;  
+  padding:20px;  
+}  
+  
+.grid img {  
+  width:100%;  
+  border-radius:10px;  
+  transition:0.3s;  
+}  
+  
+.grid img:hover {  
+  transform:scale(1.08);  
+}  
+  
+/* CONTACT */  
+form {  
+  display:flex;  
+  flex-direction:column;  
+  max-width:400px;  
+  margin:auto;  
+  gap:10px;  
+}  
+  
+input,textarea {  
+  padding:10px;  
+  border-radius:5px;  
+  border:none;  
+}  
+  
+button {  
+  padding:10px;  
+  border:none;  
+  background:var(--primary);  
+  cursor:pointer;  
+}  
+  
+/* WHATSAPP FLOAT */  
+.whatsapp {  
+  position:fixed;  
+  bottom:20px;  
+  right:20px;  
+  background:#25D366;  
+  color:#fff;  
+  padding:15px;  
+  border-radius:50%;  
+  text-decoration:none;  
+  font-size:20px;  
+}  
+  
+/* ANIMATION */  
+@keyframes fade {  
+  from{opacity:0;}  
+  to{opacity:1;}  
+}  
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>  
+  
+</head>  
+<body>  
+ 
+<div id="loader" style="position:fixed; width:100%; height:100%; background:#0f172a; display:flex; justify-content:center; align-items:center; z-index:9999;">
+  <div style="width:40px; height:40px; border:5px solid #ccc; border-top:5px solid #38bdf8; border-radius:50%; animation:spin 1s linear infinite;"></div>
+</div>
+ 
+<nav>  
+  <h2>Placid Designs</h2>  
+  <div class="menu">
+    <button onclick="toggleMenu()">☰ Menu</button>
+    <div id="dropdown" class="dropdown">
+      <a href="#home">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#">Explore</a>
+    </div>
+  </div>
+</nav>  
+  
+<section id="home" class="hero">  
+  <h1>BRINGING <span>IDEAS TO REALITY PIXEL BY </span>PIXEL</h1>  
+  <p>WE DESIGN OUTSTANDING LOGOS, FLYER, BUSINESS and WEDDING CARDS, POSTCARDS AND STANDOUT BRAND — FASTER THAN EVER.</p>  
+</section>    
+
+<div class="slider">
+  <div class="slides">
+    
+    <div class="slide">
+      <img src="images/IMG_20260328_023804.png">
+      <p>Book Cover Designs</p>
+    </div>
+
+    <div class="slide">
+      <img src="images/IMG_20260328_024107.png">
+      <p>Brands</p>
+    </div>
+
+    <div class="slide">
+      <img src="images/IMG_20260328_024230.png">
+      <p>Business Cards</p>
+    </div>
+
+    <div class="slide">
+      <img src="images/IMG_20260328_024139.png">
+      <p>Logos</p>
+    </div>
+
+  </div>
+</div>
+  
+<section id="contact">  
+  <h2 style="text-align:center;">Contact Me</h2>  
+  
+  <!-- REAL EMAIL FORM -->  
+  <form action="https://formspree.io/f/mgopelny" method="POST">  
+    <input type="text" name="name" placeholder="Your Name" required>  
+    <input type="email" name="email" placeholder="Your Email" required>  
+    <textarea name="message" placeholder="Your Message" required></textarea>  
+    <button type="submit">Send Message</button>  
+  </form>  
+</section>  
+  
+<!-- WHATSAPP BUTTON -->  
+<a class="whatsapp" href="https://wa.me/2349135705008" target="_blank">💬</a>  
+
+<div id="previewBox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
+  <img id="previewImg" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
+  
+<script>  
+function toggleMode(){  
+  document.body.classList.toggle("light");  
+}
+
+function toggleMenu(){
+  document.getElementById("dropdown").classList.toggle("show");
+}  
+</script>  
+
+<script>
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+// Fade OUT before going to another page
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    if (this.href && !this.href.includes("#")) {
+      e.preventDefault();
+      document.body.classList.remove("loaded");
+
+      setTimeout(() => {
+        window.location = this.href;
+      }, 300);
+    }
+  });
+});
+</script>
+
+<script>
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+});
+</script>
+
+<script>
+const images = document.querySelectorAll(".grid img");
+const previewBox = document.getElementById("previewBox");
+const previewImg = document.getElementById("previewImg");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    previewBox.style.display = "flex";
+    previewImg.src = img.src;
+  });
+});
+
+// Close when clicked
+previewBox.addEventListener("click", () => {
+  previewBox.style.display = "none";
+});
+</script>
+
+<script>
+let index = 0;
+const slides = document.querySelectorAll(".slide");
+const track = document.querySelector(".slides");
+
+let isPaused = false;
+let startX = 0;
+
+// UPDATE POSITION
+
+function updateSlider() {
+  const slideWidth = slides[0].offsetWidth + 20; // include gap
+  const containerWidth = document.querySelector(".slider").offsetWidth;
+
+  // THIS IS THE MAGIC (centering)
+  const offset = (containerWidth - slideWidth) / 2;
+
+  track.style.transform = `translateX(${offset - (index * slideWidth)}px)`;
+
+  slides.forEach(s => s.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+// AUTO SLIDE
+setInterval(() => {
+  if (!isPaused) {
+    index++;
+    if (index >= slides.length) index = 0;
+    updateSlider();
+  }
+}, 10000);
+
+// HOLD TO PAUSE
+track.addEventListener("touchstart", e => {
+  isPaused = true;
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", e => {
+  isPaused = false;
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX > endX + 50) index++;
+  else if (startX < endX - 50) index--;
+
+  if (index >= slides.length) index = 0;
+  if (index < 0) index = slides.length - 1;
+
+  updateSlider();
+});
+
+// DESKTOP HOLD
+track.addEventListener("mousedown", () => isPaused = true);
+track.addEventListener("mouseup", () => isPaused = false);
+
+// INIT
+updateSlider();
+</script>
+
+<footer style="text-align:center; padding:20px;">
+  placiddesignhub
+</footer>
+  
+</body>  
+</html> 
